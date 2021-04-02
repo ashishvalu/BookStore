@@ -1,0 +1,29 @@
+<div class="breadcrumb">
+       <div class="container">
+           <a class="breadcrumb-item" href="<%= root_path %>">Home</a>
+           <span class="breadcrumb-item active">Forgot your password?</span>
+       </div>
+   </div>
+   <section class="static about-sec">
+          <div class="container">
+              <h1>Forgot your password?</h1>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+              <div class="form">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                  <div class="row">
+                      <div class="col-md-5">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder:"Enter your Email"%>
+                          <span class="required-star">*</span>
+                      </div>
+                      <div class="col-lg-5 col-md-10">
+                          <%= f.submit "Send me reset password instructions", class: 'btn black' %>
+                      </div>
+                      <div>
+                          <h5>not Registered? <a href="<%= new_user_registration_path %>">REgister here</a></h5>
+                      </div>
+                  </div>
+               <% end %>
+              </div>
+          </div>
+      </section>

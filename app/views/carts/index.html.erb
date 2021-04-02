@@ -1,0 +1,56 @@
+<div class="breadcrumb">
+  <div class="container">
+    <div class="row">
+      <a class="breadcrumb-item" href="<%= root_path%>">Home</a>
+      <span class="breadcrumb-item active">Cart</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="item">
+    <h1>Shopping Cart</h1><br><br>
+    <% @books.each do |book|%>
+    <div class="product">
+      <div class="product-image">
+        <%= image_tag book.image.variant(resize_to_limit: [300,300]) %>
+      </div>
+      <div class="product-details">
+        <div class="product-title"><%= book.name%></div>
+        <p class="product-description">
+            Many of us have special memories of the books that have inspired us,
+             and have learned the profound effect that reading the right book can have at the right moment.
+              If you’re short on time, reading some quotes about books is the next best thing.</p>
+        </div>
+        <div class="product-price"><%= book.price %></div>
+        <div class="product-quantity">
+          <input type="number" value="2" min="1">
+        </div>
+        <div class="product-removal">
+          <button class="remove-product btn">
+            Remove
+          </button>
+        </div>
+        <!-- <div class="product-line-price">25.98</div> -->
+      </div>
+      <% end %>
+      <div class="totals">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal">71.97</div>
+        </div>
+        <div class="totals-item">
+          <label>Tax (5%)</label>
+          <div class="totals-value" id="cart-tax">3.60</div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">15.00</div>
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total">90.57</div>
+        </div>
+      </div>
+      <%= link_to 'checkout',checkouts_path,class:"btn checkout"%>
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="<%= root_path %>">Home</a>
+            <span class="breadcrumb-item active">Login</span>
+        </div>
+    </div>
+<section class="static about-sec">
+        <div class="container">
+            <h1>My Account / Login</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form">
+                <form>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Enter User Email" %>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-md-5">
+                            <%= f.password_field :password, autocomplete: "current-password" ,placeholder: "Enter user password" %>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                          <div class="row" >
+                           <%= f.submit "Log in",class:"btn black",id:"bttn" %>
+                            <h5>not Registered? <a href="<%= new_user_registration_path %>">REgister here</a></h5>
+                             <h5> <a href="<%= new_user_password_path %>">Forgot your password?</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <% end %>
+        </div>
+    </section>

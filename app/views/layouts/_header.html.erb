@@ -1,0 +1,61 @@
+<header>
+  <div class="main-menu">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href=<%=root_path%>><%= image_tag "logo.png"%></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item active">
+              <a href="<%= root_path %>" class="nav-link"><%= t 'menu.home' %></a>
+            </li>
+            <li class="navbar-item">
+              <a href="<%= books_path %>" class="nav-link"><%= t 'menu.shop' %></a>
+            </li>
+            <li class="navbar-item">
+              <a href="about.html" class="nav-link"><%= t 'menu.about' %></a>
+            </li>
+            <li class="navbar-item">
+              <a href="faq.html" class="nav-link"><%= t 'menu.faq' %></a>
+            </li>
+            <li class="navbar-item">
+              <% if current_user %> %>
+              <%= link_to t('menu.signout'), destroy_user_session_path, method: :delete ,class:"nav-link"%>
+              <% else %>
+              <%= link_to t('menu.login'), new_user_session_path, class:"nav-link"%>
+              <% end %>
+            </li>
+            <li class="navbar-item">
+
+              <div class="dropdown">
+                <div class=" dropdown-toggle" data-toggle="dropdown" id:"myid">
+                  <%= image_tag "lan.png",class:"imagg"%>
+                </div>
+                <div class="dropdown-menu">
+                  <%= link_to "English", locale: "en"%><br>
+                  <%= link_to "Gujrati", locale: "gu"%>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="cart my-2 my-lg-0">
+            <span>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+              <span class="quntity"></span>
+            </div>
+            <div class="form-inline my-2 my-lg-0">
+              <div class=" mr-sm-2">
+                <%= form_tag(books_path, method: :get) do %>
+                <%= text_field_tag(:name, params[:name], placeholder: " Search here...") %>
+                <span class="fa fa-search"></span>
+              </div>
+            </div>
+            <%= submit_tag 'search',class: "bb"%>
+            <%end%>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>

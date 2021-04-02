@@ -1,0 +1,205 @@
+<div class="breadcrumb">
+  <div class="container">
+    <div class="row">
+      <a class="breadcrumb-item" href="<%= root_path%>">Home</a>
+      <span class="breadcrumb-item active">Shop</span>
+    </div>
+  </div>
+</div>
+<section class="static about-sec">
+  <div class="container mycont">
+    <h2>highly recommendes books</h2>
+    <div class="recomended-sec">
+      <div class="row">
+        <div class="filter">
+          <h2>Filters</h2>
+          <hr>
+          <%= form_tag books_path,method: :get do %>
+          <%= label_tag 'search', nil, class: 'search1' %>
+          <%= text_field_tag :name, params[:name], placeholder: "Search....." ,class: "form-control" %>
+          <%= label_tag 'sort by', nil, class: 'search1' %>
+          <%= select_tag :order, options_for_select([['All', ''],['Price--High to Low','high_to_low'],['price --Low to High','low_to_high'],['Newest First','latest_books'],['Old First','old_books']], params[:order]),class: "form-control" %>
+          <%= label_tag 'Categories', nil, class: 'search1' %>
+          <%= select_tag :categary_id, options_for_select([['All', ''],['story','1'],['story','2'],['novel','3']], params[:categary_id]), class: "form-control" %>
+          <br>
+          <%= submit_tag "Search", class: "btn" %>
+          <% end %>
+
+        </div>
+        <% if @books.present? %>
+        <% @books.each do |book| %>
+        <div class="col-lg-3 col-md-6">
+          <div class="item">
+            <%= image_tag book.image.variant(resize_to_limit: [300,300]) %>
+            <h3><%= book.name%></h3>
+            <h6><span class="price"><%= book.price %></span> / <a href="#">Buy Now</a></h6>
+            <div class="hover">
+              <a href=<%=book_path(book)%>>
+                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% else %>
+        <div class="col-sm-8 offset-sm-2 text-center ">
+          <h2>No results found</h2>
+        </div>
+        <% end %>
+      </div><br><br>
+      <div class="page">
+         <%= paginate @books %>
+      </div>
+    </div>
+
+    <h2>recently added books to our store</h2>
+    <div class="recent-book-sec">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r1.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r2.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r3.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r4.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r5.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r1.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r2.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r3.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r4.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r5.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r1.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r2.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r3.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r4.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r5.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r1.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r2.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r3.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r4.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item">
+            <%= image_tag "r5.jpg"%>
+            <h3><a href="#">Keepers of the kalachakara</a></h3>
+            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+          </div>
+        </div>
+      </div>
+      <div class="btn-sec">
+        <a href="books.html" class="btn gray-btn">load More books</a>
+      </div>
+    </div>
+  </div>
+
+</section>
