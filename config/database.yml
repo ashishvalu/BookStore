@@ -17,5 +17,3 @@ test:
 production:
   <<: *default
   database: books_production
-  username: postgres
-  password: root

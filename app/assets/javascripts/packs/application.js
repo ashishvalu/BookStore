@@ -10,4 +10,4 @@ require ("bootstrap.min")
 require ("popper.min")
 require ("owl.carousel.min")
 require ("custom")
-require ("active_admin")
+  
